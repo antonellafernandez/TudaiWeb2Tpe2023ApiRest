@@ -15,9 +15,9 @@ $router = new Router();
 
 
 // define la tabla de ruteo
-$router->addRoute('libros/:ID', 'GET', 'bookController', 'getBookById');
-$router->addRoute('tareas', 'POST', 'TaskApiController', 'crearTarea');
-$router->addRoute('tareas/:ID', 'GET', 'TaskApiController', 'obtenerTarea');
+$router->addRoute("/libros/:ID", "GET", "bookController", "getBookById");
+$router->addRoute("/libros", "POST", "bookController", "addBook");
+
 
 // rutea
 $router->route($resource, $method);

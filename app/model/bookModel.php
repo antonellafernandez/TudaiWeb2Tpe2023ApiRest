@@ -18,4 +18,12 @@ class bookModel {
 
         return $book; // Retorna el libro encontrado o null si no se encuentra
     }
+
+    public function saveBook($title, $publication_date, $id_author, $synopsis) {
+        $query = $this->db->prepare('INSERT INTO books(title, publication_date, id_author, synopsis) VALUES(?,?,?,0)');
+        $query->execute([$title, $publication_date, $id_author, $synopsis]); 
+        
+        return $this->db->lastInsertId();
+    }
+
 }
