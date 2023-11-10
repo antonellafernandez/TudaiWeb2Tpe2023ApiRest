@@ -7,33 +7,38 @@ class Route {
     private $method;
     private $params;
 
-    public function __construct($url, $verb, $controller, $method){
+    public function __construct($url, $verb, $controller, $method) {
         $this->url = $url;
         $this->verb = $verb;
         $this->controller = $controller;
         $this->method = $method;
         $this->params = [];
     }
+
     public function match($url, $verb) {
-        if($this->verb != $verb){
+        if ($this->verb != $verb) {
             return false;
         }
+
         $partsURL = explode("/", trim($url,'/'));
         $partsRoute = explode("/", trim($this->url,'/'));
-        if(count($partsRoute) != count($partsURL)){
+        
+        if (count($partsRoute) != count($partsURL)) {
             return false;
         }
+
         foreach ($partsRoute as $key => $part) {
-            if($part[0] != ":"){
+            if ($part[0] != ":") {
                 if($part != $partsURL[$key])
                 return false;
-            } //es un parametro
-            else
-            $this->params[$part] = $partsURL[$key];
+            } else {
+                $this->params[$part] = $partsURL[$key];
+            }
         }
         return true;
     }
-    public function run(){
+
+    public function run() {
         $controller = $this->controller;  
         $method = $this->method;
         $params = $this->params;
@@ -51,11 +56,8 @@ class Router {
     }
 
     public function route($url, $verb) {
-        //$ruta->url //no compila!
         foreach ($this->routeTable as $route) {
             if($route->match($url, $verb)){
-                //TODO: ejecutar el controller//ejecutar el controller
-                // pasarle los parametros
                 $route->run();
                 return;
             }
