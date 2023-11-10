@@ -13,7 +13,7 @@ class bookModel {
     public function getBookByID($bookId) {
         $query = $this->db->prepare("SELECT * FROM books WHERE id = ?"); 
         $query->execute([$bookId]);
-
+ 
         $book = $query->fetch(PDO::FETCH_OBJ);
 
         return $book; // Retorna el libro encontrado o null si no se encuentra
