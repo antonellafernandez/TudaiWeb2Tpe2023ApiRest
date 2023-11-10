@@ -1,10 +1,12 @@
 <?php
 
 require_once './app/model/bookModel.php';
+require_once './APIController.php';
 
 class bookController extends APIController { 
     
     public function __construct() {
+        parent::__construct();
         $this->model = new bookModel();
     }
     

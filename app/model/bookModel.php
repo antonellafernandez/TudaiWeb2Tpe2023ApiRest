@@ -20,7 +20,7 @@ class bookModel {
     }
 
     public function saveBook($title, $publication_date, $id_author, $synopsis) {
-        $query = $this->db->prepare('INSERT INTO books(title, publication_date, id_author, synopsis) VALUES(?,?,?,0)');
+        $query = $this->db->prepare('INSERT INTO books(title, publication_date, id_author, synopsis) VALUES(?,?,?,?)');
         $query->execute([$title, $publication_date, $id_author, $synopsis]); 
         
         return $this->db->lastInsertId();
