@@ -27,7 +27,7 @@ class bookController extends APIController {
     public function addBook($params = null) {
         $data = $this->getData();
 
-        $id = $this->model->saveBook($data->title, $data->publication_date, $data->id_author, $data ->synopsis);
+        $id = $this->model->addBook($data->title, $data->publication_date, $data->id_author, $data ->synopsis);
         
         $tarea = $this->model->getBookByID($id);
         if ($tarea)

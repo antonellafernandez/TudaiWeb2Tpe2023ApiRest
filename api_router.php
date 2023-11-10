@@ -1,7 +1,7 @@
 <?php
 
-require_once("./libs/Route.php");
-require_once("./app/controller/bookController.php");
+require_once "libs/Route.php";
+require_once "./app/controller/bookController.php";
 
 // instancia el router
 $router = new Router();
