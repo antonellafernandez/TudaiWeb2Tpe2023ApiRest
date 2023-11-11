@@ -11,7 +11,8 @@
 <h4>GET /libros</h4>
 <p>Este Endpoint devuelve la lista de libros de la base de datos dentro de la tabla "books".</p>
 
-<a>Ej: http://localhost/carpeta/subcarpeta/api/libros</a>
+<p>Ejemplo</p>
+<a>http://localhost/carpeta/subcarpeta/api/libros</a>
 
 <p>Puede recibir distintas opciones parametrizadas:</p>
 
@@ -21,7 +22,8 @@
   <li>?order: Este parámetro recibe un número de tipo Integer y ordena de manera descendente (0) o ascendente (1), si el parámetro no está definido o el número ingresado no es válido, su valor por defecto es 1.</li>
 </ul>
 
-<a>Ej: http://localhost/carpeta/subcarpeta/api/libros?sort_by=title&order=0</a>
+<p>Ejemplo</p>
+<a>http://localhost/carpeta/subcarpeta/api/libros?sort_by=title&order=0</a>
 
 <p>Parámetros de paginado:</p>
 <ul>
@@ -29,15 +31,19 @@
   <li>?per_page: Este parámetro recibe un número de tipo Integer que define la cantidad de elementos contenidos en cada página, si el parámetro no está definido o el número ingresado no es válido, su valor por defecto es 10.
 </ul>
 
-<a>Ej: http://localhost/carpeta/subcarpeta/api/libros?page=1&per_page=10</a>
+<p>Ejemplo</p>
+<a>http://localhost/carpeta/subcarpeta/api/libros?page=1&per_page=10</a>
 
 <h4>GET /libros/:ID</h4>
 <p>Este Endpoint devuelve el libro con el ID indicado.</p>
 
-<a>Ej: http://localhost/carpeta/subcarpeta/api/libros/21</a>
+<p>Ejemplo</p>
+<a>http://localhost/carpeta/subcarpeta/api/libros/21</a>
 
 <h4>POST /libros</h4>
 <p>Este Endpoint crea un nuevo recurso luego de recibir un objeto JSON en el body del HTTP Request.</p>
+
+<p>Ejemplo</p>
 
 ```json
 {
@@ -50,6 +56,8 @@
 
 <h4>PUT /libros/:ID</h4>
 <p>Este Endpoint actualiza un recurso luego de recibir un objeto JSON en el body del HTTP Request.</p>
+
+<p>Ejemplo</p>
 
 ```json
 {
