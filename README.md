@@ -16,8 +16,8 @@
 <p>Puede recibir distintas opciones para filtrar la lista a través de query params:</p>
 
 <ul>
-  <li>?sort_by: Este parámentro recibe un String y devuelve una lista con todos los libros ordenados por dicho campo, si el campo no existe se ordena predefinido por id_book.</li>
-  <li>?order: Este parámetro recibe un número de tipo Integer y ordena de manera descendente (0) o ascendente (1), si el número ingresado no es válido ordena predefinido de manera ascendente.</li>
+  <li>?sort_by: Este parámentro recibe un String y devuelve una lista con todos los libros ordenados por dicho campo, si el parámetro no está definido o el campo no existe, se ordena predefinido por id_book.</li>
+  <li>?order: Este parámetro recibe un número de tipo Integer y ordena de manera descendente (0) o ascendente (1), si el parámetro no está definido o el número ingresado no es válido, se ordena predefinido de manera ascendente.</li>
 </ul>
 
 <a>Ej: http://localhost/Web_2/TPEWeb_ApiRest/api/libros?sort_by=title&order=0</a>
@@ -25,4 +25,4 @@
 <h4>GET /libros/:ID</h4>
 <p>Este Endpoint devuelve el libro con el ID indicado.</p>
 
-<p>Ej: http://localhost/Web_2/TPEWeb_ApiRest/api/libros/21</p>
+<a>Ej: http://localhost/Web_2/TPEWeb_ApiRest/api/libros/21</a>
