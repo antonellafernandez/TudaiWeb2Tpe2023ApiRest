@@ -6,7 +6,7 @@
 
 <h4>Trabajo Práctico Especial realizado de manera colaborativa entre Echazú, Candela Azul (gcandela894@gmail.com) y Fernández, Daniela Antonella (liquiddookie.17@gmail.com) para la materia Web II.</h4>
 
-<h4>Endpoints</h4>
+<h2>Endpoints</h4>
 
 <h4>GET /libros</h4>
 <p>Este Endpoint devuelve la lista de libros de la base de datos dentro de la tabla "books".</p>
