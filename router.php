@@ -14,5 +14,7 @@ $router->addRoute('libros/:ID', 'GET',    'BookApiController', 'get');
 $router->addRoute('libros',     'POST',   'BookApiController', 'create');
 $router->addRoute('libros/:ID', 'PUT',    'BookApiController', 'update');
 
+$router->addRoute('user/token', 'GET',    'UserApiController', 'getToken');
+
 # htaccess resource=(), llamar a GET/POST/PUT/...
 $router->route($_GET['resource'], $_SERVER['REQUEST_METHOD']);

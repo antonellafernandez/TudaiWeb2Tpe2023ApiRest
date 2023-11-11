@@ -1,8 +1,10 @@
 <?php
 
 // Configuración de la base de datos
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'db_library');
-define('DB_CHARSET', 'utf8');
+const MYSQL_HOST = 'localhost';
+const MYSQL_USER = 'root';
+const MYSQL_PASS = '';
+const MYSQL_DB = 'db_library';
+const MYSQL_CHARSET = 'utf8';
+const JWT_KEY = 'Token1234567!?!?%';
+const JWT_EXP = 3600;
