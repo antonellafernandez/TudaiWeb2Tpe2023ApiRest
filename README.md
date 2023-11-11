@@ -11,18 +11,27 @@
 <h4>GET /libros</h4>
 <p>Este Endpoint devuelve la lista de libros de la base de datos dentro de la tabla "books".</p>
 
-<a>Ej: http://localhost/Web_2/TPEWeb_ApiRest/api/libros</a>
+<a>Ej: http://localhost/Carpeta/Subcarpeta/api/libros</a>
 
-<p>Puede recibir distintas opciones para filtrar la lista a través de query params:</p>
+<p>Puede recibir distintas opciones parametrizadas:</p>
 
+<p>Parámetros de ordenamiento:</p>
 <ul>
-  <li>?sort_by: Este parámentro recibe un String y devuelve una lista con todos los libros ordenados por dicho campo, si el parámetro no está definido o el campo no existe, se ordena predefinido por id_book.</li>
-  <li>?order: Este parámetro recibe un número de tipo Integer y ordena de manera descendente (0) o ascendente (1), si el parámetro no está definido o el número ingresado no es válido, se ordena predefinido de manera ascendente.</li>
+  <li>?sort_by: Este parámentro recibe un String y devuelve una lista con todos los libros ordenados por dicho campo, si el parámetro no está definido o el campo no existe, su valor por defecto es id_book.</li>
+  <li>?order: Este parámetro recibe un número de tipo Integer y ordena de manera descendente (0) o ascendente (1), si el parámetro no está definido o el número ingresado no es válido, su valor por defecto es 1.</li>
 </ul>
 
-<a>Ej: http://localhost/Web_2/TPEWeb_ApiRest/api/libros?sort_by=title&order=0</a>
+<a>Ej: http://localhost/Carpeta/Subcarpeta/api/libros?sort_by=title&order=0</a>
+
+<p>Parámetros de paginado:</p>
+<ul>
+  <li>?page: Este parámentro recibe un número de tipo Integer e indica la página que se quiere recuperar, si el parámetro no está definido o el número ingresado no es válido, su valor por defecto es 1.</li>
+  <li>?per_page: Este parámetro recibe un número de tipo Integer que define la cantidad de elementos contenidos en cada página, si el parámetro no está definido o el número ingresado no es válido, su valor por defecto es 10.
+</ul>
+
+<a>Ej: http://localhost/Carpeta/Subcarpeta/api/libros?page=1&per_page=10</a>
 
 <h4>GET /libros/:ID</h4>
 <p>Este Endpoint devuelve el libro con el ID indicado.</p>
 
-<a>Ej: http://localhost/Web_2/TPEWeb_ApiRest/api/libros/21</a>
+<a>Ej: http://localhost/Carpeta/Subcarpeta/api/libros/21</a>
