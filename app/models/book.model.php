@@ -13,8 +13,14 @@ class BookModel {
         $this->db = new PDO("mysql:host=$host;dbname=$dbname;charset=$charset", $user, $pass);
     }
 
+    function getBooks() {
+        $query = $this->db->prepare('SELECT * FROM books');
+        $query->execute();
 
-//MIEMBRO B - BUSCAR LIBROS POR ID.
+        $books = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $books;
+    }
 
     function getBookByID($bookId) {
         $query = $this->db->prepare('SELECT * FROM books WHERE id_book = ?');
@@ -22,7 +28,7 @@ class BookModel {
  
         $book = $query->fetch(PDO::FETCH_OBJ);
 
-        return $book; // Retorna el libro encontrado o null si no se encuentra
+        return $book;
     }
 
     function addBook($title, $publication_date, $id_author, $synopsis) {
@@ -32,4 +38,8 @@ class BookModel {
         return $this->db->lastInsertId();
     }
 
+    function updateBookData($id, $title, $publication_date, $id_author, $synopsis) {
+        $query = $this->db->prepare('UPDATE books SET title = ?, publication_date = ?, id_author = ?, synopsis = ? WHERE id_book = ?');
+        $query->execute([$title, $publication_date, $id_author, $synopsis, $id]);
+    }
 }
