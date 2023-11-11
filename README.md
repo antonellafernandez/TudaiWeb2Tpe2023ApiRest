@@ -11,7 +11,7 @@
 <h4>GET /libros</h4>
 <p>Este Endpoint devuelve la lista de libros de la base de datos dentro de la tabla "books".</p>
 
-<p>Ej: http://localhost/Web_2/TPEWeb_ApiRest/api/libros</p>
+<a>Ej: http://localhost/Web_2/TPEWeb_ApiRest/api/libros</a>
 
 <p>Puede recibir distintas opciones para filtrar la lista a través de query params:</p>
 
@@ -20,7 +20,7 @@
   <li>?order: Este parámetro recibe un número de tipo Integer y ordena de manera descendente (0) o ascendente (1), si el número ingresado no es válido ordena predefinido de manera ascendente.</li>
 </ul>
 
-<p>Ej: http://localhost/Web_2/TPEWeb_ApiRest/api/libros?sort_by=title&order=0</p>
+<a>Ej: http://localhost/Web_2/TPEWeb_ApiRest/api/libros?sort_by=title&order=0</a>
 
 <h4>GET /libros/:ID</h4>
 <p>Este Endpoint devuelve el libro con el ID indicado.</p>
