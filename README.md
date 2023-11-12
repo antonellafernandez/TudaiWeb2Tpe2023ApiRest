@@ -49,6 +49,12 @@
 
 *Ejemplo:* http://localhost/carpeta/subcarpeta/api/libros/21
 
+<h4>GET /libros/autor/:ID_A</h4>
+<p>Este Endpoint filtra los libros por la ID del autor y devuelve todos los que pertenecen al mismo.</p>
+
+*Ejemplo:* http://localhost/carpeta/subcarpeta/api/libros/autor/1
+
+
 <h4>POST /libros</h4>
 <p>Este Endpoint crea un nuevo recurso luego de recibir un objeto JSON en el body del HTTP Request.</p>
 
