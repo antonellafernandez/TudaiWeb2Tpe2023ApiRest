@@ -6,6 +6,6 @@ class UserModel extends Model {
         $query = $this->db->prepare('SELECT * FROM users WHERE user = ?');
         $query->execute(array($username));
 
-        return $query->fetch(PDO::FETCH_OBJ);
+        return $query->fetch(PDO::FETCH_ASSOC);
     }
 }

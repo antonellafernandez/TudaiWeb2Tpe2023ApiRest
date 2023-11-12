@@ -8,10 +8,15 @@ function base64url_encode($data) {
 class AuthHelper {
     function getAuthHeaders() {
         $header = "";
-        if (isset($_SERVER['HTTP_AUTHORIZATION']))
+
+        if (isset($_SERVER['HTTP_AUTHORIZATION'])) {
             $header = $_SERVER['HTTP_AUTHORIZATION'];
-        if (isset($_SERVER['REDIRECT_HTTP_AUTHORIZATION']))
+        } elseif (isset($_SERVER['REDIRECT_HTTP_AUTHORIZATION'])) {
             $header = $_SERVER['REDIRECT_HTTP_AUTHORIZATION'];
+        } elseif (isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW'])) {
+            $header = 'Basic ' . base64_encode($_SERVER['PHP_AUTH_USER'] . ':' . $_SERVER['PHP_AUTH_PW']);
+        }
+
         return $header;
     }
 
@@ -64,6 +69,6 @@ class AuthHelper {
             return false;
         }
 
-        return $this->verify($auth[1]); // Si está bien nos devuelve el payload
+        return $this->verify($auth[1]);
     }
 }

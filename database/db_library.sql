@@ -106,7 +106,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user`, `password`) VALUES
-(1, 'webadmin', 'admin');
+(1, 'webadmin', '$2a$10$syD4YBZdyUVYgb84zn4nu.th8bSWIIUEVHfRABRSNBGEPIMrEIzTy');
 
 
 --

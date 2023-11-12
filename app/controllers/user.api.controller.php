@@ -36,11 +36,15 @@ class UserApiController extends ApiController {
 
         $userdata = $this->model->getByUsername($user);
 
-        if ($userdata && password_verify($pass, $userdata['password'])) {
-            $token = $this->authHelper->createToken($userdata);
-            $this->view->response($token);
+        if ($userdata) {
+            if (password_verify($pass, $userdata['password'])) {
+                $token = $this->authHelper->createToken($userdata);
+                $this->view->response($token);
+            } else {
+                $this->view->response('Contraseña incorrecta.', 401);
+            }
         } else {
-            $this->view->response('El usuario o contraseña son incorrectos.', 401);
+            $this->view->response('Usuario incorrecto.', 401);
         }
     }
 }
