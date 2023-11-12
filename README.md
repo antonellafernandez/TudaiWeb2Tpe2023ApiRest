@@ -17,7 +17,7 @@
 
 <p>Si los datos ingresados son correctos, se obtendrá un Token de acceso.</p>
 
-<p>Para realizar las consultas GET [TP] - Mediante la pestaña de Autorización, seleccionar Bearer Token y completar el campo Token con el Token de acceso obtenido, sin agregar la palabra Bearer.</p>
+<p>Para realizar las consultas y modificaciones [TP] - Mediante la pestaña de Autorización, seleccionar Bearer Token y completar el campo Token con el Token de acceso obtenido, sin agregar la palabra Bearer.</p>
 
 <h4>GET /libros [TP]</h4>
 <p>Este Endpoint devuelve la lista de libros de la base de datos dentro de la tabla "books".</p>
@@ -53,7 +53,7 @@
 *Ejemplo:* http://localhost/carpeta/subcarpeta/api/libros/autor/1
 
 
-<h4>POST /libros</h4>
+<h4>POST /libros [TP]</h4>
 <p>Este Endpoint crea un nuevo recurso luego de recibir un objeto JSON en el body del HTTP Request.</p>
 
 *Ejemplo:* http://localhost/carpeta/subcarpeta/api/libros
@@ -67,7 +67,7 @@
 }
 ```
 
-<h4>PUT /libros/:ID</h4>
+<h4>PUT /libros/:ID [TP]</h4>
 <p>Este Endpoint actualiza un recurso luego de recibir un objeto JSON en el body del HTTP Request.</p>
 
 *Ejemplo:* http://localhost/carpeta/subcarpeta/api/libros/62
