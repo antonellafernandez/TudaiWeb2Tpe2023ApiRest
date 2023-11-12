@@ -20,6 +20,15 @@ class BookModel extends Model {
         return $book;
     }
 
+    function getByAuthor($idAuthor) {
+        $query = $this->db->prepare("SELECT * FROM books WHERE id_author = ?");
+        $query->execute([$idAuthor]);
+
+        $books = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $books;
+    }
+
     function addBook($title, $publication_date, $id_author, $synopsis) {
         $query = $this->db->prepare("INSERT INTO books (title, publication_date, id_author, synopsis) VALUES (?,?,?,?)");
         $query->execute([$title, $publication_date, $id_author, $synopsis]);

@@ -41,6 +41,15 @@ class BookApiController extends ApiController {
                 } else {
                     $this->view->response('El servidor no ha podido interpretar la solicitud.', 500);
                 }
+            } else if (!empty($idAuthor = $params[':ID_A'])) {
+                if (!empty($idAuthor)) {
+                    $booksByAuthor = $this->model->getByAuthor($idAuthor);
+                    if ($booksByAuthor) {
+                        return $this->view->response($booksByAuthor, 200);
+                    } else {
+                        $this->view->response('No se encontraron libros para el autor con id=' . $idAuthor, 404);
+                    }
+                }
             } else {
                 $id = $params[':ID'];
                 $book = $this->model->getBookByID($id);
