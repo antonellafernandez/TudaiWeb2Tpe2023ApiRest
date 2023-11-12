@@ -13,10 +13,8 @@ class AuthHelper {
             $header = $_SERVER['HTTP_AUTHORIZATION'];
         } elseif (isset($_SERVER['REDIRECT_HTTP_AUTHORIZATION'])) {
             $header = $_SERVER['REDIRECT_HTTP_AUTHORIZATION'];
-        } elseif (isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW'])) {
-            $header = 'Basic ' . base64_encode($_SERVER['PHP_AUTH_USER'] . ':' . $_SERVER['PHP_AUTH_PW']);
         }
-
+        
         return $header;
     }
 

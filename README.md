@@ -9,7 +9,7 @@
 <h2>Endpoints</h4>
 
 <h4>GET /user/token</h4>
-<p>Este Endpoint se utiliza para obtener un Token de acceso para realizar las consultas Token Protected.</p>
+<p>Este Endpoint se utiliza para obtener un Token de acceso para realizar las consultas Token Protected [TP].</p>
 
 *Ejemplo:* http://localhost/carpeta/subcarpeta/api/user/token
 
@@ -17,10 +17,10 @@
 
 <p>Si los datos ingresados son correctos, se obtendrá un Token de acceso.</p>
 
-<h4>GET /libros [Token Protected]</h4>
+<h4>GET /libros [TP]</h4>
 <p>Este Endpoint devuelve la lista de libros de la base de datos dentro de la tabla "books".</p>
 
-<p>Mediante la pestaña de Autorización, seleccionar Bearer Token y completar el campo Token con Bearer seguido de un espacio y el Token de acceso obtenido</p>
+<p>Mediante la pestaña de Autorización, seleccionar Bearer Token y completar el campo Token con el Token de acceso obtenido, sin agregar la palabra Bearer.</p>
 
 <p>Si los datos ingresados son correctos, se obtendrá la lista de libros.</p>
 
