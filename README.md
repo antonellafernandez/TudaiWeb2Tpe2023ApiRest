@@ -13,7 +13,7 @@
 
 *Ejemplo:* http://localhost/carpeta/subcarpeta/api/user/token
 
-<p>Mediante la pestaña de Autorización, seleccionar Autorización Básica (Basic Auth) y completar los campos de Usuario y Contraseña.</p>
+<p>Mediante la pestaña de Autorización, seleccionar Autorización Básica (Basic Auth) y completar los campos de Usuario (webadmin) y Contraseña (admin).</p>
 
 <p>Si los datos ingresados son correctos, se obtendrá un Token de acceso.</p>
 
