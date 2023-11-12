@@ -8,7 +8,7 @@
 
 <h2>Endpoints</h4>
 
-<h4>GET /libros</h4>
+<h4>GET /libros [Token Protected]</h4>
 <p>Este Endpoint devuelve la lista de libros de la base de datos dentro de la tabla "books".</p>
 
 *Ejemplo:* http://localhost/carpeta/subcarpeta/api/libros
@@ -64,3 +64,12 @@
     "synopsis": "Soy una sinopsis actualizada"
 }
 ```
+
+<h4>GET /user/token</h4>
+<p>Este Endpoint se utiliza para obtener un Token de acceso para realizar las consultas Token Protected.</p>
+
+*Ejemplo:* http://localhost/Web_2/TPEWeb_ApiRest/api/user/token
+
+<p>Mediante la pestaña de Autorización, seleccionar Autorización Básica (Basic Auth) y completar los campos de Usuario y Contraseña.</p>
+
+<p>Si los datos ingresados son correctos, se obtendrá un Token de acceso.</p>
