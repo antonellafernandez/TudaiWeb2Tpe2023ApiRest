@@ -1,12 +1,7 @@
 <?php
+require_once 'app/models/model.php';
 
-class UserModel {
-    private $db;
-
-    function __construct() {
-        $this->db = new PDO("mysql:host=" . MYSQL_HOST . ";dbname=" . MYSQL_DB . ";charset=" . MYSQL_CHARSET, MYSQL_USER, MYSQL_PASS);
-    }
-
+class UserModel extends Model {
     public function getByUsername($username) {
         $query = $this->db->prepare('SELECT * FROM users WHERE user = ?');
         $query->execute(array($username));

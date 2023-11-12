@@ -97,7 +97,7 @@ INSERT INTO `books` (`id_book`, `title`, `publication_date`, `id_author`, `synop
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `user` varchar(45) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -106,7 +106,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user`, `password`) VALUES
-(1, 'webadmin', '$2a$10$syD4YBZdyUVYgb84zn4nu.th8bSWIIUEVHfRABRSNBGEPIMrEIzTy');
+(1, 'webadmin', 'admin');
 
 
 --

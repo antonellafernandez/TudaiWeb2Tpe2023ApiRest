@@ -1,16 +1,30 @@
 <?php
 require_once 'app/controllers/api.controller.php';
+require_once 'app/helpers/auth.api.helper.php';
 require_once 'app/models/book.model.php';
 
 class BookApiController extends ApiController {
     private $model;
+    private $authHelper;
 
     function __construct() {
         parent::__construct();
+        $this->authHelper = new AuthHelper();
         $this->model = new BookModel();
     }
 
     function get($params = []) {
+        $user = $this->authHelper->currentUser();
+        if (!$user) {
+            $this->view->response('Unauthorized.', 401);
+            return;
+        }
+
+        if ($user->role != 'ADMIN') {
+            $this->view->response('Forbidden.', 403);
+            return;
+        }
+
         if (empty($params)) {
             $allowed_fields = ['id_book', 'title', 'publication_date', 'id_author', 'synopsis'];
             $sort_by = !empty($_GET['sort_by']) ? $_GET['sort_by'] : "id_book";

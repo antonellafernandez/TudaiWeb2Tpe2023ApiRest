@@ -1,9 +1,9 @@
 <?php
-
 require_once 'config.php';
 require_once 'libs/router.php';
 
 require_once 'app/controllers/book.api.controller.php';
+require_once 'app/controllers/user.api.controller.php';
 
 // Instanciar router
 $router = new Router();
