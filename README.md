@@ -17,12 +17,10 @@
 
 <p>Si los datos ingresados son correctos, se obtendrá un Token de acceso.</p>
 
+<p>Para realizar las consultas GET [TP] - Mediante la pestaña de Autorización, seleccionar Bearer Token y completar el campo Token con el Token de acceso obtenido, sin agregar la palabra Bearer.</p>
+
 <h4>GET /libros [TP]</h4>
 <p>Este Endpoint devuelve la lista de libros de la base de datos dentro de la tabla "books".</p>
-
-<p>Mediante la pestaña de Autorización, seleccionar Bearer Token y completar el campo Token con el Token de acceso obtenido, sin agregar la palabra Bearer.</p>
-
-<p>Si los datos ingresados son correctos, se obtendrá la lista de libros.</p>
 
 *Ejemplo:* http://localhost/carpeta/subcarpeta/api/libros
 
@@ -44,12 +42,12 @@
 
 *Ejemplo:* http://localhost/carpeta/subcarpeta/api/libros?page=1&per_page=10
 
-<h4>GET /libros/:ID</h4>
+<h4>GET /libros/:ID [TP]</h4>
 <p>Este Endpoint devuelve el libro con el ID indicado.</p>
 
 *Ejemplo:* http://localhost/carpeta/subcarpeta/api/libros/21
 
-<h4>GET /libros/autor/:ID_A</h4>
+<h4>GET /libros/autor/:ID_A [TP]</h4>
 <p>Este Endpoint filtra los libros por la ID del autor y devuelve todos los que pertenecen al mismo.</p>
 
 *Ejemplo:* http://localhost/carpeta/subcarpeta/api/libros/autor/1
