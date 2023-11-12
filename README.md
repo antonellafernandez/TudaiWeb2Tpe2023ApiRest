@@ -68,7 +68,7 @@
 <h4>GET /user/token</h4>
 <p>Este Endpoint se utiliza para obtener un Token de acceso para realizar las consultas Token Protected.</p>
 
-*Ejemplo:* http://localhost/Web_2/TPEWeb_ApiRest/api/user/token
+*Ejemplo:* http://localhost/carpeta/subcarpeta/api/user/token
 
 <p>Mediante la pestaña de Autorización, seleccionar Autorización Básica (Basic Auth) y completar los campos de Usuario y Contraseña.</p>
 
