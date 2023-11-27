@@ -14,50 +14,44 @@ class BookApiController extends ApiController {
     }
 
     function get($params = []) {
-        $user = $this->authHelper->currentUser();
+        // Corrección GET Eliminado requerimiento Token
+        if (empty($params)) {
+            $allowed_fields = ['id_book', 'title', 'publication_date', 'id_author', 'synopsis'];
+            $sort_by = !empty($_GET['sort_by']) ? $_GET['sort_by'] : "id_book";
+            $sort_by = in_array($sort_by, $allowed_fields) ? $sort_by : 'id_book';
 
-        if (!$user) {
-            $this->view->response('Unauthorized.', 401);
-            return;
-        } else {
-            if (empty($params)) {
-                $allowed_fields = ['id_book', 'title', 'publication_date', 'id_author', 'synopsis'];
-                $sort_by = !empty($_GET['sort_by']) ? $_GET['sort_by'] : "id_book";
-                $sort_by = in_array($sort_by, $allowed_fields) ? $sort_by : 'id_book';
+            $order = (!empty($_GET['order']) && $_GET['order'] == 1) ? "DESC" : "ASC";
 
-                $order = (!empty($_GET['order']) && $_GET['order'] == 1) ? "DESC" : "ASC";
+            $page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
+            $per_page = !empty($_GET['per_page']) ? (int)$_GET['per_page'] : 10;
+            $start_index = ($page - 1) * $per_page;
 
-                $page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
-                $per_page = !empty($_GET['per_page']) ? (int)$_GET['per_page'] : 10;
-                $start_index = ($page - 1) * $per_page;
+            $limit = intval($per_page);
+            $offset = intval($start_index);
 
-                $limit = intval($per_page);
-                $offset = intval($start_index);
+            $books = $this->model->getBooks($sort_by, $order, $limit, $offset);
 
-                $books = $this->model->getBooks($sort_by, $order, $limit, $offset);
-
-                if ($books) {
-                    return $this->view->response($books, 200);
-                } else {
-                    $this->view->response('El servidor no ha podido interpretar la solicitud.', 500);
-                }
-            } else if (!empty($params[':ID_A']) && !empty($idAuthor = $params[':ID_A'])) {
-                $idAuthor = $params[':ID_A'];
-                $booksByAuthor = $this->model->getByAuthor($idAuthor);
-                if ($booksByAuthor) {
-                    return $this->view->response($booksByAuthor, 200);
-                } else {
-                    $this->view->response('No se encontraron libros para el autor con id=' . $idAuthor, 404);
-                }
+            if ($books) {
+                return $this->view->response($books, 200);
             } else {
-                $id = $params[':ID'];
-                $book = $this->model->getBookByID($id);
+                $this->view->response('El servidor no ha podido interpretar la solicitud.', 500);
+            }
+        } else if (!empty($params[':ID_A']) && !empty($idAuthor = $params[':ID_A'])) {
+            $idAuthor = $params[':ID_A'];
+            $booksByAuthor = $this->model->getByAuthor($idAuthor);
+            if ($booksByAuthor) {
+                return $this->view->response($booksByAuthor, 200);
+            } else {
+                $this->view->response('No se encontraron libros para el autor con id=' . $idAuthor, 404);
+            }
+        } else {
+            $id = $params[':ID'];
+            $book = $this->model->getBookByID($id);
 
-                if ($book) {
-                    $this->view->response($book, 200);
-                } else {
-                    $this->view->response('El libro con id=' . $id . ' no existe.', 404);
-                }
+            if ($book) {
+                $this->view->response($book, 200);
+            } else {
+                $this->view->response('El libro con id=' . $id . ' no existe.', 404);
             }
         }
     }
@@ -75,7 +69,8 @@ class BookApiController extends ApiController {
             $book = $this->model->getBookByID($id);
 
             if ($book) {
-                $this->view->response($book, 200);
+                // Corrección POST Modificado a Código 201
+                $this->view->response($book, 201);
             } else {
                 $this->view->response('El libro no ha sido creado.', 500);
             }
