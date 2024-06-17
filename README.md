@@ -4,7 +4,7 @@
 
 <h3>Tecnicatura Universitaria en Desarrollo de Aplicaciones Informáticas</h3>
 
-<h4>Trabajo Práctico Especial realizado de manera colaborativa entre Echazú, Candela Azul (gcandela894@gmail.com) y Fernández, Daniela Antonella (liquiddookie.17@gmail.com) para la materia Web II.</h4>
+<h4>Trabajo Práctico Especial realizado de manera colaborativa entre Echazú, Candela Azul y Fernández, Daniela Antonella para la materia Web II.</h4>
 
 <h2>Endpoints</h4>
 
